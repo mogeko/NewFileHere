@@ -13,6 +13,8 @@
 		6B4E0A9F27F70E2B00BEEE9E /* NewFileHereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E0A9E27F70E2B00BEEE9E /* NewFileHereTests.swift */; };
 		6B4E0AA927F70E2B00BEEE9E /* NewFileHereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E0AA827F70E2B00BEEE9E /* NewFileHereUITests.swift */; };
 		6B4E0AAB27F70E2B00BEEE9E /* NewFileHereUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E0AAA27F70E2B00BEEE9E /* NewFileHereUITestsLaunchTests.swift */; };
+		6B4E0AC327F72E3000BEEE9E /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4E0AC227F72E3000BEEE9E /* FinderSync.swift */; };
+		6B4E0AC827F72E3000BEEE9E /* NewFileHereFinderExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6B4E0AC027F72E3000BEEE9E /* NewFileHereFinderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +32,28 @@
 			remoteGlobalIDString = 6B4E0A8A27F70E2A00BEEE9E;
 			remoteInfo = NewFileHere;
 		};
+		6B4E0AC627F72E3000BEEE9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B4E0A8327F70E2A00BEEE9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B4E0ABF27F72E3000BEEE9E;
+			remoteInfo = NewFileHereFinderExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6B4E0ACC27F72E3000BEEE9E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6B4E0AC827F72E3000BEEE9E /* NewFileHereFinderExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6B4E0A8B27F70E2A00BEEE9E /* NewFileHere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewFileHere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +66,10 @@
 		6B4E0AA427F70E2B00BEEE9E /* NewFileHereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewFileHereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B4E0AA827F70E2B00BEEE9E /* NewFileHereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFileHereUITests.swift; sourceTree = "<group>"; };
 		6B4E0AAA27F70E2B00BEEE9E /* NewFileHereUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFileHereUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6B4E0AC027F72E3000BEEE9E /* NewFileHereFinderExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NewFileHereFinderExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B4E0AC227F72E3000BEEE9E /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
+		6B4E0AC427F72E3000BEEE9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B4E0AC527F72E3000BEEE9E /* NewFileHereFinderExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NewFileHereFinderExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +94,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6B4E0ABD27F72E3000BEEE9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -74,8 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				6B4E0A8D27F70E2A00BEEE9E /* NewFileHere */,
-				6B4E0A9D27F70E2B00BEEE9E /* NewFileHereTests */,
+				6B4E0AC127F72E3000BEEE9E /* NewFileHereFinderExtension */,
 				6B4E0AA727F70E2B00BEEE9E /* NewFileHereUITests */,
+				6B4E0A9D27F70E2B00BEEE9E /* NewFileHereTests */,
 				6B4E0A8C27F70E2A00BEEE9E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +121,7 @@
 				6B4E0A8B27F70E2A00BEEE9E /* NewFileHere.app */,
 				6B4E0A9A27F70E2B00BEEE9E /* NewFileHereTests.xctest */,
 				6B4E0AA427F70E2B00BEEE9E /* NewFileHereUITests.xctest */,
+				6B4E0AC027F72E3000BEEE9E /* NewFileHereFinderExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +154,16 @@
 			path = NewFileHereUITests;
 			sourceTree = "<group>";
 		};
+		6B4E0AC127F72E3000BEEE9E /* NewFileHereFinderExtension */ = {
+			isa = PBXGroup;
+			children = (
+				6B4E0AC227F72E3000BEEE9E /* FinderSync.swift */,
+				6B4E0AC427F72E3000BEEE9E /* Info.plist */,
+				6B4E0AC527F72E3000BEEE9E /* NewFileHereFinderExtension.entitlements */,
+			);
+			path = NewFileHereFinderExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,10 +174,12 @@
 				6B4E0A8727F70E2A00BEEE9E /* Sources */,
 				6B4E0A8827F70E2A00BEEE9E /* Frameworks */,
 				6B4E0A8927F70E2A00BEEE9E /* Resources */,
+				6B4E0ACC27F72E3000BEEE9E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6B4E0AC727F72E3000BEEE9E /* PBXTargetDependency */,
 			);
 			name = NewFileHere;
 			productName = NewFileHere;
@@ -174,6 +222,23 @@
 			productReference = 6B4E0AA427F70E2B00BEEE9E /* NewFileHereUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		6B4E0ABF27F72E3000BEEE9E /* NewFileHereFinderExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B4E0AC927F72E3000BEEE9E /* Build configuration list for PBXNativeTarget "NewFileHereFinderExtension" */;
+			buildPhases = (
+				6B4E0ABC27F72E3000BEEE9E /* Sources */,
+				6B4E0ABD27F72E3000BEEE9E /* Frameworks */,
+				6B4E0ABE27F72E3000BEEE9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NewFileHereFinderExtension;
+			productName = NewFileHereFinderExtension;
+			productReference = 6B4E0AC027F72E3000BEEE9E /* NewFileHereFinderExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -195,6 +260,9 @@
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = 6B4E0A8A27F70E2A00BEEE9E;
 					};
+					6B4E0ABF27F72E3000BEEE9E = {
+						CreatedOnToolsVersion = 13.3;
+					};
 				};
 			};
 			buildConfigurationList = 6B4E0A8627F70E2A00BEEE9E /* Build configuration list for PBXProject "NewFileHere" */;
@@ -213,6 +281,7 @@
 				6B4E0A8A27F70E2A00BEEE9E /* NewFileHere */,
 				6B4E0A9927F70E2B00BEEE9E /* NewFileHereTests */,
 				6B4E0AA327F70E2B00BEEE9E /* NewFileHereUITests */,
+				6B4E0ABF27F72E3000BEEE9E /* NewFileHereFinderExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +304,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6B4E0AA227F70E2B00BEEE9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B4E0ABE27F72E3000BEEE9E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,6 +345,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6B4E0ABC27F72E3000BEEE9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B4E0AC327F72E3000BEEE9E /* FinderSync.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -281,6 +365,11 @@
 			isa = PBXTargetDependency;
 			target = 6B4E0A8A27F70E2A00BEEE9E /* NewFileHere */;
 			targetProxy = 6B4E0AA527F70E2B00BEEE9E /* PBXContainerItemProxy */;
+		};
+		6B4E0AC727F72E3000BEEE9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B4E0ABF27F72E3000BEEE9E /* NewFileHereFinderExtension */;
+			targetProxy = 6B4E0AC627F72E3000BEEE9E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -412,6 +501,7 @@
 		6B4E0AAF27F70E2B00BEEE9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NewFileHere/NewFileHere.entitlements;
@@ -429,7 +519,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mogheko.me.NewFileHere;
+				PRODUCT_BUNDLE_IDENTIFIER = me.mogheko.NewFileHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -439,6 +529,7 @@
 		6B4E0AB027F70E2B00BEEE9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NewFileHere/NewFileHere.entitlements;
@@ -456,7 +547,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mogheko.me.NewFileHere;
+				PRODUCT_BUNDLE_IDENTIFIER = me.mogheko.NewFileHere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -535,6 +626,60 @@
 			};
 			name = Release;
 		};
+		6B4E0ACA27F72E3000BEEE9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NewFileHereFinderExtension/NewFileHereFinderExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8UAT353YWC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewFileHereFinderExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NewFileHereFinderExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.mogheko.NewFileHere.NewFileHereFinderExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6B4E0ACB27F72E3000BEEE9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NewFileHereFinderExtension/NewFileHereFinderExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8UAT353YWC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewFileHereFinderExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NewFileHereFinderExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.mogheko.NewFileHere.NewFileHereFinderExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -570,6 +715,15 @@
 			buildConfigurations = (
 				6B4E0AB527F70E2B00BEEE9E /* Debug */,
 				6B4E0AB627F70E2B00BEEE9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B4E0AC927F72E3000BEEE9E /* Build configuration list for PBXNativeTarget "NewFileHereFinderExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B4E0ACA27F72E3000BEEE9E /* Debug */,
+				6B4E0ACB27F72E3000BEEE9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

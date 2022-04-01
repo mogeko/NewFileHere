@@ -9,8 +9,14 @@ import Cocoa
 import FinderSync
 
 class FinderSync: FIFinderSync {
-
-    var myFolderURL = URL(fileURLWithPath: "/Users/Shared/MySyncExtension Documents")
+    
+    let fileTypes = [
+        FileType("Markdown", "md"),
+        FileType("Microsoft Word", "docx"),
+        FileType("Microsoft Excel", "xlsx"),
+        FileType("Microsoft PowerPoint", "pptx"),
+        FileType("Text file", "txt")
+    ]
     
     override init() {
         super.init()
@@ -18,67 +24,76 @@ class FinderSync: FIFinderSync {
         NSLog("FinderSync() launched from %@", Bundle.main.bundlePath as NSString)
         
         // Set up the directory we are syncing.
-        FIFinderSyncController.default().directoryURLs = [self.myFolderURL]
-        
-        // Set up images for our badge identifiers. For demonstration purposes, this uses off-the-shelf images.
-        FIFinderSyncController.default().setBadgeImage(NSImage(named: NSImage.colorPanelName)!, label: "Status One" , forBadgeIdentifier: "One")
-        FIFinderSyncController.default().setBadgeImage(NSImage(named: NSImage.cautionName)!, label: "Status Two", forBadgeIdentifier: "Two")
-    }
-    
-    // MARK: - Primary Finder Sync protocol methods
-    
-    override func beginObservingDirectory(at url: URL) {
-        // The user is now seeing the container's contents.
-        // If they see it in more than one view at a time, we're only told once.
-        NSLog("beginObservingDirectoryAtURL: %@", url.path as NSString)
-    }
-    
-    
-    override func endObservingDirectory(at url: URL) {
-        // The user is no longer seeing the container's contents.
-        NSLog("endObservingDirectoryAtURL: %@", url.path as NSString)
-    }
-    
-    override func requestBadgeIdentifier(for url: URL) {
-        NSLog("requestBadgeIdentifierForURL: %@", url.path as NSString)
-        
-        // For demonstration purposes, this picks one of our two badges, or no badge at all, based on the filename.
-        let whichBadge = abs(url.path.hash) % 3
-        let badgeIdentifier = ["", "One", "Two"][whichBadge]
-        FIFinderSyncController.default().setBadgeIdentifier(badgeIdentifier, for: url)
+        let finderSync = FIFinderSyncController.default()
+        if let mountedVolumes = FileManager.default.mountedVolumeURLs(includingResourceValuesForKeys: nil,
+                                                                      options: [.skipHiddenVolumes]) {
+                finderSync.directoryURLs = Set<URL>(mountedVolumes)
+        }
     }
     
     // MARK: - Menu and toolbar item support
     
-    override var toolbarItemName: String {
-        return "FinderSy"
-    }
-    
-    override var toolbarItemToolTip: String {
-        return "FinderSy: Click the toolbar item for a menu."
-    }
-    
-    override var toolbarItemImage: NSImage {
-        return NSImage(named: NSImage.cautionName)!
-    }
-    
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
         // Produce a menu for the extension.
-        let menu = NSMenu(title: "")
-        menu.addItem(withTitle: "Example Menu Item", action: #selector(sampleAction(_:)), keyEquivalent: "")
+        var menu = NSMenu(title: "")
+        switch menuKind {
+        case .contextualMenuForContainer:
+            menu = addNewFileSubMenu(menu)
+        default:
+            break
+        }
         return menu
     }
     
-    @IBAction func sampleAction(_ sender: AnyObject?) {
-        let target = FIFinderSyncController.default().targetedURL()
-        let items = FIFinderSyncController.default().selectedItemURLs()
+    func addNewFileSubMenu(_ mainMenu: NSMenu) -> NSMenu {
+        // Submenu
+        let newFileSubMenu = NSMenu(title: "")
+        let availableFileTypes = fileTypes
+        availableFileTypes.forEach({ fileType in
+            newFileSubMenu.addItem(withTitle: fileType.name, action: #selector(createNewFile(_:)), keyEquivalent: "")
+        })
+        // Main Menu
+        let mainDropDownNewFileSubMenu = NSMenuItem(title: "Create a new...", action: nil, keyEquivalent: "")
+        mainMenu.addItem(mainDropDownNewFileSubMenu)
+        mainMenu.setSubmenu(newFileSubMenu, for: mainDropDownNewFileSubMenu)
+        return mainMenu
+    }
+    
+    // MARK: - Actions
+    
+    func getSelectedPathsFromFinder() -> [URL] {
+        var urls = [URL]()
+        if let items = FIFinderSyncController.default().selectedItemURLs(), items.count > 0 {
+            urls = items
+        } else if let url = FIFinderSyncController.default().targetedURL() {
+            urls.append(url)
+        }
+        return urls
+    }
+    
+    // MARK: - Menu Actions
+
+    @IBAction func createNewFile(_ sender: AnyObject?) {
+        guard let url = FIFinderSyncController.default().targetedURL() else { return }
         
         let item = sender as! NSMenuItem
-        NSLog("sampleAction: menu item: %@, target = %@, items = ", item.title as NSString, target!.path as NSString)
-        for obj in items! {
-            NSLog("    %@", obj.path as NSString)
+        for fileType in fileTypes {
+            if fileType.name == item.title {
+                NSLog("Create \"New File.%s\" in \"%s\".", fileType.fienameExtension, url.path)
+//                FileManager.default.createFile(atPath: "\(url.path)/New File.\(fileType.fienameExtension)",
+//                                               contents: nil,
+//                                               attributes: nil)
+            }
         }
     }
-
 }
 
+struct FileType {
+    let name: String
+    let fienameExtension: String
+    
+    init(_ name: String, _ fienameExtension: String) {
+        self.name = name
+        self.fienameExtension = fienameExtension
+    }
+}

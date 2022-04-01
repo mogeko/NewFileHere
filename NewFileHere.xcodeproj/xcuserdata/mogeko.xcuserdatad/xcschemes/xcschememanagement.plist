@@ -7,7 +7,7 @@
 		<key>NewFileHere.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -30,6 +30,11 @@
 			<true/>
 		</dict>
 		<key>6B4E0AA327F70E2B00BEEE9E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B4E0ABF27F72E3000BEEE9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
